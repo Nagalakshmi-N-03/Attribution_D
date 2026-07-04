@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_ga4__events
+    description: >
+      One row per GA4 event. Flattens nested event_params and traffic_source,
+      dedupes on (user_pseudo_id, event_name, event_ts).
+    columns:
+      - name: event_id
+        description: Deterministic hash of user + event + timestamp
+        tests:
+          - unique
+          - not_null
+      - name: event_ts
+        tests:
+          - not_null
+      - name: user_pseudo_id
+        tests:
+          - not_null
+      - name: event_name
+        tests:
+          - not_null
