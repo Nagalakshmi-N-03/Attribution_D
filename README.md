@@ -32,52 +32,19 @@ The pipeline processes ~3 months of GA4 batch data (5,698 purchases) plus live s
 
 The key correctness guarantee is a custom singular test (`assert_revenue_reconciles`) that fails if total attributed revenue under either model doesn't exactly equal total conversion revenue. It has always passed — meaning no purchase is ever dropped or double-counted.
 
+![End-to-end pipeline flow](docs/images/pipeline_flow.png)
+
+
 ---
 
+
 ## Architecture
-┌────────────────────────────┐    ┌─────────────────────────────┐
-│ GA4 public dataset (batch) │    │ Python producer (streaming) │
-│ bigquery-public-data.      │    │ streaming/stream_events.py  │
-│ ga4_obfuscated_sample_     │    │                             │
-│ ecommerce.events_*         │    │  → raw.streamed_events      │
-└─────────────┬──────────────┘    └──────────────┬──────────────┘
-│                                    │
-└────────────────┬───────────────────┘
-▼
-┌───────────────────────┐
-│  stg_ga4__events      │
-│  flatten + union      │
-│  + ROW_NUMBER dedupe  │
-└───────────┬───────────┘
-▼
-┌──────────────────┴──────────────────┐
-▼                                       ▼
-┌───────────────┐                    ┌────────────────┐
-│int_touchpoints│                    │int_conversions │
-│one per session│                    │one per purchase│
-└───────┬───────┘                    └────────┬───────┘
-└────────────────┬───────────────────┘
-▼
-┌─────────────────────────────┐
-│  int_conversion_paths        │
-│  30-day lookback join        │
-└──────────────┬───────────────┘
-▼
-┌──────────────────┴──────────────────┐
-▼                                       ▼
-┌────────────────────┐                 ┌────────────────────┐
-│fct_attribution_    │                 │fct_attribution_    │
-│first_click         │                 │last_click          │
-└──────────┬─────────┘                 └──────────┬─────────┘
-└────────────────┬────────────────────┘
-▼
-┌──────────────────┴──────────────────┐
-▼                                       ▼
-┌────────────────────┐                 ┌────────────────────┐
-│ Looker Studio       │                 │ Streamlit          │
-│ (shareable link)    │                 │ (local realtime)   │
-└────────────────────┘                 └────────────────────┘
-Hand-drawn versions: `sketches/01_pipeline_sketch.jpg` and `sketches/02_attribution_timeline.jpg`.
+![Architecture](docs/images/architecture.png)
+
+## Model
+![Data model](docs/images/data_model.png)
+
+
 
 ---
 
