@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: fct_attribution_first_click
+    description: One conversion per row, 100% credit to earliest touchpoint in 30-day lookback.
+    columns:
+      - name: conversion_id
+        tests:
+          - unique
+          - not_null
+      - name: channel
+        tests:
+          - not_null
+
+  - name: fct_attribution_last_click
+    description: One conversion per row, 100% credit to latest touchpoint in 30-day lookback.
+    columns:
+      - name: conversion_id
+        tests:
+          - unique
+          - not_null
+      - name: channel
+        tests:
+          - not_null

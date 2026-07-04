@@ -5,3 +5,5 @@ passes. Tomorrow: staging model.
 
 ## Day-2 - 04 Jul
 Built staging model — UNNEST pattern for event_params, ROW_NUMBER dedupe, md5 event_id. Added uniqueness/not-null tests, all passing.
+
+Hit sandbox limitation: streaming inserts require billing. Switched to micro-batch load jobs (free) — idempotency now relies on staging-layer dedupe, which was designed for exactly this.
