@@ -141,9 +141,10 @@ dbt build
 ```
 
 ### 6. View dashboards
-**Looker Studio (shareable):** open the link at the top of this README.
+- **Live dashboard (Looker Studio):** https://lookerstudio.google.com/reporting/https://datastudio.google.com/reporting/340bc99e-2608-40e8-bba3-906564cbdf84
 
-**Streamlit (local realtime demo):**
+
+**Streamlit :**
 ```powershell
 cd dashboard
 pip install streamlit pandas altair db-dtypes google-cloud-bigquery
