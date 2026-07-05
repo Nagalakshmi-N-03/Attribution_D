@@ -146,7 +146,7 @@ dbt build
 ```
 
 ### 6. View dashboards
-- **Live dashboard (Looker Studio):** https://lookerstudio.google.com/reporting/https://datastudio.google.com/reporting/340bc99e-2608-40e8-bba3-906564cbdf84
+- **Live dashboard (Looker Studio):** https://lookerstudio.google.com/reporting/340bc99e-2608-40e8-bba3-906564cbdf84
 
 
 **Streamlit :**
