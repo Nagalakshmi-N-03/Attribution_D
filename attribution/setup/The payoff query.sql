@@ -6,3 +6,7 @@ FROM (
 )
 WHERE user_pseudo_id LIKE 'stream_user%'
 ORDER BY user_pseudo_id, attribution_model;
+
+
+
+

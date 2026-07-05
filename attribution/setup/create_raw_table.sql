@@ -15,3 +15,7 @@ CREATE TABLE IF NOT EXISTS `attribution-dashboard-501310.raw.streamed_events`
   purchase_revenue  FLOAT64,
   inserted_at       TIMESTAMP
 );
+
+
+
+

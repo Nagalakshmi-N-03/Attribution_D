@@ -5,3 +5,8 @@ select
     coalesce(purchase_revenue, 0) as revenue
 from {{ ref('stg_ga4__events') }}
 where event_name = 'purchase'
+
+
+
+
+

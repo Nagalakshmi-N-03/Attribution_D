@@ -39,3 +39,7 @@ select
         else 'Other'
     end as channel
 from session_agg
+
+
+
+

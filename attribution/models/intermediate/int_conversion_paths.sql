@@ -26,3 +26,9 @@ inner join touchpoints t
     on c.user_pseudo_id = t.user_pseudo_id
     and t.touchpoint_ts <= c.conversion_ts
     and t.touchpoint_ts >= timestamp_sub(c.conversion_ts, interval 30 day)
+
+
+
+
+
+    
