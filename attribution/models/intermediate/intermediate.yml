@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: int_touchpoints
+    columns:
+      - name: touchpoint_id
+        tests: [unique, not_null]
+
+  - name: int_conversions
+    columns:
+      - name: conversion_id
+        tests: [unique, not_null]
+
+  - name: int_conversion_paths
+    columns:
+      - name: conversion_id
+        tests: [not_null]
+      - name: touchpoint_id
+        tests: [not_null]
