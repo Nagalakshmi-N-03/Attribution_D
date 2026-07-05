@@ -14,7 +14,7 @@ Sketched pipeline shape on paper before writing any SQL:
 sources → staging → touchpoints + conversions → attribution marts → dashboard.
 GitHub repo created, first commit.
 
-## Day 1 — Windows setup pain, dbt authenticated
+## Day 1 — Windows setup, dbt authenticated
 Installed dbt-core + dbt-bigquery + gcloud CLI on Windows. Hit an OAuth consent
 scope issue — first `gcloud auth application-default login` failed because the
 `cloud-platform` scope checkbox was unchecked by default on the consent screen.
