@@ -19,6 +19,11 @@ Both models run on the same GA4 event data and produce measurably different resu
 
 The pipeline processes ~3 months of GA4 batch data (5,698 purchases) plus live streamed events, computes both models in dbt on BigQuery, and displays the results in two dashboards.
 
+## Demo
+
+**Video walkthrough (Loom):** https://www.loom.com/share/c3ad99d1376e40e9873d1445fc077a17
+
+
 ---
 
 ## How it works
@@ -177,14 +182,6 @@ Ran the streaming loader twice on purpose → 38 raw rows → 36 staged rows. Tw
 
 ### Cost notes
 BigQuery sandbox (free tier) covers everything here. Dataset is a few GB, well within the 1 TB/month query allowance. Streaming inserts (paid) not used — the sandbox blocks them, so the pipeline uses free load jobs and relies on the transform-layer dedupe.
-
----
-
-## Demo video
-
-_paste your screencast link here (Loom / YouTube unlisted / Google Drive)_
-
-The 5–8 minute walkthrough covers: architecture on the whiteboard sketch, dbt models in VS Code, `dbt build` running green with all tests passing, the payoff query showing first-click and last-click crediting different channels for the same streamed purchase, the streaming script producing new events, and both dashboards updating end-to-end.
 
 ---
 
