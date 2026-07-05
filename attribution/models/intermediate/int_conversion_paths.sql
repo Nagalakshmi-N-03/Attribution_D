@@ -30,5 +30,4 @@ inner join touchpoints t
 
 
 
-
-    
+ 
