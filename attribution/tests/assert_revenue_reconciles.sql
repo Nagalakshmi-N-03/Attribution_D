@@ -14,3 +14,8 @@ select *
 from first_click, last_click, conversions
 where first_click.total != conversions.total
    or last_click.total != conversions.total
+
+
+
+
+   

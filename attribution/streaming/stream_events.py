@@ -15,7 +15,7 @@ from google.cloud import bigquery
 
 PROJECT = "attribution-dashboard-501310"
 TABLE = f"{PROJECT}.raw.streamed_events"
-
+ 
 CHANNELS = [
     ("google", "cpc", "summer_sale"),
     ("google", "organic", None),
