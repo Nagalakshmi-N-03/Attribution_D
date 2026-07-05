@@ -52,16 +52,15 @@ The key correctness guarantee is a custom singular test (`assert_revenue_reconci
 
 | Layer | Tool |
 |---|---|
-| Storage + compute | BigQuery (free-tier sandbox) |
+| Storage + compute | BigQuery|
 | Transformation | dbt-core 1.11 + dbt-bigquery 1.11 |
 | Streaming ingestion | Python 3.11 + `google-cloud-bigquery` (load jobs) |
 | Idempotency | Deterministic sha256 event_id + `ROW_NUMBER()` staging dedupe |
-| Primary dashboard | Looker Studio (shareable link, 1-minute freshness) |
-| Local realtime dashboard | Streamlit + Altair |
+| Primary dashboard | Looker Studio |
+| Local realtime dashboard | Streamlit |
 | Authentication | gcloud CLI application-default credentials |
 | Testing | dbt generic tests + custom singular test for revenue reconciliation |
 | Version control | Git + GitHub, incremental commits |
-| Suggested prod orchestration | Cloud Scheduler + Cloud Run calling `dbt build` every 5–15 min |
 
 ---
 
