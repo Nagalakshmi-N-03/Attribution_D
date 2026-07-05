@@ -79,3 +79,7 @@ select
     purchase_revenue
 from deduped
 where rn = 1
+
+
+
+
