@@ -32,13 +32,13 @@ The pipeline processes ~3 months of GA4 batch data (5,698 purchases) plus live s
 
 The key correctness guarantee is a custom singular test (`assert_revenue_reconciles`) that fails if total attributed revenue under either model doesn't exactly equal total conversion revenue. It has always passed — meaning no purchase is ever dropped or double-counted.
 
-![End-to-end pipeline flow](Pipeline%20runtime.png)
+![End-to-end pipeline flow](pipeline-runtime.png)
 
 ---
 
 ## Architecture
 
-![Architecture](Architecture.png)
+![Architecture](architecture.png)
 
 ---
 
@@ -78,7 +78,7 @@ No download required — the dataset is queried directly from BigQuery. Free-tie
 
 ## Model
 
-![Data Models](Data%20Models.png)
+![Data model](data-model.png)
 
 ### Staging layer
 - **`stg_ga4__events`** — one row per event. Flattens GA4's nested `event_params` and `traffic_source` fields, unions batch + streamed sources, deduplicates on `(user_pseudo_id, event_name, event_ts)` using `ROW_NUMBER()`. Materialized as a view.
